@@ -1,0 +1,5 @@
+<!--in tab_menu_text.xml-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="#757575" android:state_checked="false"/>
+    <item android:color="#129D89" android:state_checked="true"/>
+</selector>
