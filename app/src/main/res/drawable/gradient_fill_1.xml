@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gradient xmlns:android="http://schemas.android.com/apk/res/android"
+    android:type="linear"
+    android:useLevel="false"
+    android:angle="0">
+
+    <!-- 定义渐变的颜色位置和颜色值 -->
+    <item
+        android:offset="0"
+        android:color="#FF8EC7FC" /> <!-- 开始颜色 -->
+    <item
+        android:offset="1"
+        android:color="#338EC7FC" /> <!-- 结束颜色 -->
+</gradient>

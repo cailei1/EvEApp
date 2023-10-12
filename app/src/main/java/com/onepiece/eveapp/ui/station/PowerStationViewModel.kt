@@ -1,6 +1,7 @@
 package com.onepiece.eveapp.ui.station
 
 import android.graphics.Color
+import androidx.core.content.ContextCompat
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.components.YAxis
@@ -8,13 +9,14 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import com.onepiece.eveapp.R
 import com.onepiece.eveapp.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 
 @HiltViewModel
-class PowerStationViewModel @Inject constructor(): BaseViewModel() {
+class PowerStationViewModel @Inject constructor() : BaseViewModel() {
 
 
     fun initLineChart(lineChart: LineChart) {
@@ -42,13 +44,26 @@ class PowerStationViewModel @Inject constructor(): BaseViewModel() {
         //获取X轴
         //获取X轴
         val xAxis: XAxis = lineChart.getXAxis()
-        xAxis.valueFormatter = IndexAxisValueFormatter(arrayOf("清醒", "浅睡", "深睡", "离床"))
+
+        xAxis.valueFormatter = IndexAxisValueFormatter(
+            arrayOf(
+                "00:00",
+                "04:00",
+                "08:00",
+                "12:00",
+                "16:00",
+                "18:00",
+                "24:00"
+            )
+        )
         xAxis.setDrawGridLines(false)
         xAxis.setDrawAxisLine(false)
         xAxis.position = XAxis.XAxisPosition.BOTTOM
         xAxis.textSize = 12f
-        val leftYAxis: YAxis = lineChart.getAxisLeft()
-        leftYAxis.valueFormatter = IndexAxisValueFormatter(arrayOf("0", "5", "10", "15"))
+        val leftYAxis: YAxis = lineChart.axisLeft
+        leftYAxis.setGranularity(5f); // 设置标签间隔
+        leftYAxis.setAxisMinimum(0f); // 设置最小值
+        leftYAxis.setAxisMaximum(25f);
         leftYAxis.axisMinimum = 0f
 //        leftYAxis.isEnabled = false
         val rightYAxis: YAxis = lineChart.getAxisRight()
@@ -56,10 +71,13 @@ class PowerStationViewModel @Inject constructor(): BaseViewModel() {
         //初始化显示数据
         //初始化显示数据
         val floats: MutableList<Float> = ArrayList()
-        floats.add(0.5f)
-        floats.add(3f)
-        floats.add(1f)
-        floats.add(0.1f)
+        floats.add(10f)
+        floats.add(12f)
+        floats.add(15f)
+        floats.add(10f)
+        floats.add(8f)
+        floats.add(7f)
+        floats.add(14f)
         val entries: MutableList<Entry> = ArrayList()
         for (i in floats.indices) {
             entries.add(Entry(i.toFloat(), floats[i]))
@@ -69,7 +87,7 @@ class PowerStationViewModel @Inject constructor(): BaseViewModel() {
         val lineDataSet = LineDataSet(entries, "")
         //线颜色
         //线颜色
-        lineDataSet.color = Color.parseColor("#FFA2A2")
+        lineDataSet.color = Color.parseColor("#FF099D84")
         //线宽度
         //线宽度
         lineDataSet.lineWidth = 1.0f
@@ -78,10 +96,10 @@ class PowerStationViewModel @Inject constructor(): BaseViewModel() {
         lineDataSet.setDrawCircles(true)
         //设置圆点颜色(外圈)
         //设置圆点颜色(外圈)
-        lineDataSet.setCircleColor(Color.parseColor("#008CFF"))
+        lineDataSet.setCircleColor(Color.parseColor("#FF099D84"))
         //设置圆点填充颜色
         //设置圆点填充颜色
-        lineDataSet.circleHoleColor = Color.parseColor("#008CFF")
+        lineDataSet.circleHoleColor = Color.parseColor("#FF099D84")
         //设置线条为平滑曲线
         //设置线条为平滑曲线
         lineDataSet.mode = LineDataSet.Mode.HORIZONTAL_BEZIER
@@ -90,7 +108,9 @@ class PowerStationViewModel @Inject constructor(): BaseViewModel() {
         lineDataSet.setDrawFilled(true)
         //设置填充颜色
         //设置填充颜色
-        lineDataSet.fillColor = Color.parseColor("#FFA2A2")
+        val drawable = ContextCompat.getDrawable(lineChart.context, R.drawable.chart_bg)
+        lineDataSet.fillDrawable = drawable
+//        lineDataSet.fillColor = Color.parseColor("#FFA2A2")
         val lineData = LineData(lineDataSet)
         //不显示曲线点的具体数值
         //不显示曲线点的具体数值
