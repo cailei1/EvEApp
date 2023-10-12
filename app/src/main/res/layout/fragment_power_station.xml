@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="330dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/main_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.onepiece.eveapp.view.CustomPowerStationView
         android:id="@+id/container"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:background="@mipmap/img_bg"
+        android:layout_height="310dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/black_50" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/center_image"
@@ -33,11 +40,44 @@
             android:id="@+id/left_top_image"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
             android:src="@mipmap/position1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/left_top_layout"
+            android:layout_width="64dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/station_des_bg"
+            app:layout_constraintEnd_toEndOf="@id/left_top_image"
+            app:layout_constraintStart_toStartOf="@id/left_top_image"
+            app:layout_constraintTop_toBottomOf="@id/left_top_image">
+
+            <TextView
+                android:id="@+id/energy_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="储能"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@id/left_top_layout"
+                app:layout_constraintStart_toStartOf="@id/left_top_layout"
+                app:layout_constraintTop_toTopOf="@id/left_top_layout" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="0.560KW"
+                android:textColor="@color/white_99"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@id/left_top_layout"
+                app:layout_constraintStart_toStartOf="@id/left_top_layout"
+                app:layout_constraintTop_toBottomOf="@id/energy_tv" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/right_top_image"
@@ -46,39 +86,417 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
             android:src="@mipmap/potation2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/right_top_image"
+            app:layout_constraintEnd_toEndOf="@id/right_top_image"
+            app:layout_constraintStart_toStartOf="@id/right_top_image"
+            app:layout_constraintTop_toTopOf="@id/right_top_image"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="data.json"
+            app:lottie_loop="true" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/right_top_layout"
+            android:layout_width="64dp"
+            android:layout_height="32dp"
+            android:background="@drawable/station_des_bg"
+            app:layout_constraintEnd_toEndOf="@id/right_top_image"
+            app:layout_constraintStart_toStartOf="@id/right_top_image"
+            app:layout_constraintTop_toBottomOf="@id/right_top_image">
+
+            <TextView
+                android:id="@+id/sun_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="光伏"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@id/right_top_layout"
+                app:layout_constraintStart_toStartOf="@id/right_top_layout"
+                app:layout_constraintTop_toTopOf="@id/right_top_layout" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="0.560KW"
+                android:textColor="@color/white_99"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@id/right_top_layout"
+                app:layout_constraintStart_toStartOf="@id/right_top_layout"
+                app:layout_constraintTop_toBottomOf="@id/sun_tv" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/left_bottom_image"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:layout_marginBottom="10dp"
             android:layout_marginLeft="30dp"
+            android:layout_marginBottom="40dp"
             android:src="@mipmap/potation4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/left_bottom_layout"
+            android:layout_width="64dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="-10dp"
+            android:background="@drawable/station_des_bg"
+            app:layout_constraintEnd_toEndOf="@id/left_bottom_image"
+            app:layout_constraintStart_toStartOf="@id/left_bottom_image"
+            app:layout_constraintTop_toBottomOf="@id/left_bottom_image">
+
+            <TextView
+                android:id="@+id/family_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="负载"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@id/left_bottom_layout"
+                app:layout_constraintStart_toStartOf="@id/left_bottom_layout"
+                app:layout_constraintTop_toTopOf="@id/left_bottom_layout" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="0.560KW"
+                android:textColor="@color/white_99"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@id/left_bottom_layout"
+                app:layout_constraintStart_toStartOf="@id/left_bottom_layout"
+                app:layout_constraintTop_toBottomOf="@id/family_tv" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/right_bottom_image"
             android:layout_width="96dp"
             android:layout_height="96dp"
-            android:layout_marginBottom="10dp"
             android:layout_marginEnd="30dp"
+            android:layout_marginBottom="40dp"
             android:src="@mipmap/potation5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/right_bottom_layout"
+            android:layout_width="64dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="-10dp"
+            android:background="@drawable/station_des_bg"
+            app:layout_constraintEnd_toEndOf="@id/right_bottom_image"
+            app:layout_constraintStart_toStartOf="@id/right_bottom_image"
+            app:layout_constraintTop_toBottomOf="@id/right_bottom_image">
+
+            <TextView
+                android:id="@+id/power_grid_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="电网"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@id/right_bottom_layout"
+                app:layout_constraintStart_toStartOf="@id/right_bottom_layout"
+                app:layout_constraintTop_toTopOf="@id/right_bottom_layout" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="0.560KW"
+                android:textColor="@color/white_99"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@id/right_bottom_layout"
+                app:layout_constraintStart_toStartOf="@id/right_bottom_layout"
+                app:layout_constraintTop_toBottomOf="@id/power_grid_tv" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </com.onepiece.eveapp.view.CustomPowerStationView>
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/line_chart"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:visibility="gone"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/power_generation_layout"
+        android:layout_width="0dp"
+        android:layout_height="88dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/power_generation_bg"
+        app:layout_constraintEnd_toStartOf="@id/power_consumer_layout"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container">
+
+        <TextView
+            android:id="@+id/today_generation_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:text="当日发电量"
+            android:textColor="@color/white_99"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@id/power_generation_layout"
+            app:layout_constraintTop_toTopOf="@id/power_generation_layout" />
+
+        <TextView
+            android:id="@+id/today_power_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:text="2256.43"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/today_generation_tv" />
+
+        <TextView
+            android:id="@+id/today_power_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:text="度"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/today_power_data"
+            app:layout_constraintStart_toEndOf="@id/today_power_data" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="14dp"
+            android:src="@drawable/ic_power_generation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/today_power_unit" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/power_consumer_layout"
+        android:layout_width="0dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/power_consumer_bg"
+        app:layout_constraintEnd_toEndOf="@id/power_money_layout"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/power_generation_layout"
+        app:layout_constraintTop_toBottomOf="@id/container">
+
+        <TextView
+            android:id="@+id/today_consumer_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:text="当日发电量"
+            android:textColor="@color/white_99"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@id/power_consumer_layout"
+            app:layout_constraintTop_toTopOf="@id/power_consumer_layout" />
+
+        <TextView
+            android:id="@+id/today_power_consumer_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:text="20.76"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/today_consumer_tv" />
+
+        <TextView
+            android:id="@+id/today_power_consumer_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:text="度"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/today_power_consumer_data"
+            app:layout_constraintStart_toEndOf="@id/today_power_consumer_data" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="14dp"
+            android:src="@drawable/ic_power_consumption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/today_power_consumer_unit" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/power_money_layout"
+        android:layout_width="0dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/power_money_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/power_consumer_layout"
+        app:layout_constraintTop_toBottomOf="@id/container">
+
+        <TextView
+            android:id="@+id/today_money_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:text="当日发电量"
+            android:textColor="@color/white_99"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@id/power_money_layout"
+            app:layout_constraintTop_toTopOf="@id/power_money_layout" />
+
+        <TextView
+            android:id="@+id/today_money_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:text="95666"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/today_money_tv" />
+
+        <TextView
+            android:id="@+id/today_money_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:text="元"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/today_money_data"
+            app:layout_constraintStart_toEndOf="@id/today_money_data" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="14dp"
+            android:src="@drawable/ic_income"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/today_money_unit" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="0dp"
+        android:layout_height="287dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/container" />
+        app:layout_constraintTop_toBottomOf="@id/power_consumer_layout"
+        card_view:cardCornerRadius="12dp"
+        card_view:cardElevation="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/card_view_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:text="发电曲线图"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/power_or_kw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:text="电量/kw"
+                android:textColor="@color/white_99"
+                android:textSize="10sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_view_title" />
+
+            <ImageView
+                android:id="@+id/indicator_img"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginStart="17dp"
+                android:background="@color/green_84"
+                app:layout_constraintBottom_toBottomOf="@id/power_or_kw"
+                app:layout_constraintStart_toEndOf="@id/power_or_kw"
+                app:layout_constraintTop_toTopOf="@id/power_or_kw" />
+
+            <TextView
+                android:id="@+id/line_power_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="发电"
+                android:textColor="@color/white_99"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@id/power_or_kw"
+                app:layout_constraintStart_toEndOf="@id/indicator_img"
+                app:layout_constraintTop_toTopOf="@id/power_or_kw" />
+
+            <com.flyco.tablayout.SegmentTabLayout
+                android:id="@+id/segment_layout"
+                android:layout_width="150dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/power_or_kw"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/power_or_kw"
+                app:tl_indicator_anim_enable="true"
+                app:tl_indicator_bounce_enable="false"
+                app:tl_indicator_color="#009688"
+                app:tl_tab_padding="5dp"
+                app:tl_textAllCaps="true"
+                app:tl_textsize="9sp" />
+
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/line_chart"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/segment_layout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

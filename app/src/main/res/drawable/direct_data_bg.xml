@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <!-- 定义圆角半径，这里设置为 16dp -->
+    <corners android:radius="11dp" />
+
+    <!-- 定义渐变背景，从上到下 -->
+    <gradient
+        android:type="linear"
+        android:startColor="#1A1EAE7A"
+        android:endColor="#1A1EAE7A"
+        android:angle="90" />
+</shape>
+
+

@@ -69,6 +69,16 @@ dependencies {
     implementation("com.github.PhilJay:MPAndroidChart:3.1.0")
 
     implementation("com.blankj:utilcodex:1.31.1")
+
+    implementation("com.airbnb.android:lottie:6.1.0")
+
+    implementation("io.github.h07000223:flycoTabLayout:3.0.0")
+
+
+    implementation("com.geyifeng.immersionbar:immersionbar:3.2.2")
+// kotlin扩展（可选）
+    implementation("com.geyifeng.immersionbar:immersionbar-ktx:3.2.2")
+
 }
 
 kapt {
