@@ -145,7 +145,7 @@ public class CustomCircleProgressView extends View {
         initOtherVariates();
         initWaveAnimation();
         createWaveShader();
-        setProgress(mProgress);
+//        setProgress(mProgress);
         Log.e("eve","custom progress view end init");
     }
 
@@ -200,12 +200,12 @@ public class CustomCircleProgressView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
 //        Log.e("eve","custom progress view start onDraw");
-        drawBackground(canvas);
-        drawBorder(canvas);
-        drawWave(canvas);
-        tryCreateBubble();
-        refreshBubbles();
-        drawBubbles(canvas);
+//        drawBackground(canvas);
+//        drawBorder(canvas);
+//        drawWave(canvas);
+//        tryCreateBubble();
+//        refreshBubbles();
+//        drawBubbles(canvas);
 //        Log.e("eve","custom progress view end onDraw");
     }
 

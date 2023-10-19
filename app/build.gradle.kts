@@ -8,7 +8,7 @@ plugins {
 android {
     signingConfigs {
         create("release") {
-            storeFile = file("E:\\AndroidWorkPlace\\EvEApp\\eve.jks")
+//            storeFile = file("E:\\AndroidWorkPlace\\EvEApp\\eve.jks")
             storePassword = "123456"
             keyPassword = "123456"
             keyAlias = "eve"
@@ -105,6 +105,8 @@ dependencies {
     implementation("io.coil-kt:coil:2.4.0")
 
     implementation("com.github.li-xiaojun:XPopup:2.9.19")
+
+    implementation ("androidx.recyclerview:recyclerview:1.3.0")
 
 }
 

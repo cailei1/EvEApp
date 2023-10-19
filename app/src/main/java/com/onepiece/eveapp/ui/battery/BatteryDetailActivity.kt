@@ -1,13 +1,12 @@
 package com.onepiece.eveapp.ui.battery
 
 import android.os.Bundle
-import android.provider.MediaStore.Video
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.onepiece.eveapp.GridSectionAverageGapItemDecoration
 import com.onepiece.eveapp.R
 import com.onepiece.eveapp.adapter.SelectionQuickAdapter
 import com.onepiece.eveapp.base.BaseActivity
-import com.onepiece.eveapp.databinding.ActivityBatteryDetailBinding
+import com.onepiece.eveapp.databinding.ActivitySectionUerBinding
 import com.onepiece.eveapp.eneity.MySection
 import com.onepiece.eveapp.eneity.SingleBatteryBean
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class BatteryDetailActivity : BaseActivity() {
 
-    private lateinit var binding: ActivityBatteryDetailBinding
+    private lateinit var binding: ActivitySectionUerBinding
 
     val list: MutableList<MySection> = ArrayList()
     override fun observeViewModel() {
@@ -24,7 +23,7 @@ class BatteryDetailActivity : BaseActivity() {
     }
 
     override fun initViewBinding() {
-        binding = ActivityBatteryDetailBinding.inflate(layoutInflater)
+        binding = ActivitySectionUerBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 
@@ -35,9 +34,11 @@ class BatteryDetailActivity : BaseActivity() {
     }
 
     private fun initListener() {
-        binding.batteryRv.adapter =
-            SelectionQuickAdapter(R.layout.item_single_battery, R.layout.item_header_top, list)
-        binding.batteryRv.layoutManager = GridLayoutManager(this,3)
+        binding.rvList.adapter =
+            SelectionQuickAdapter(R.layout.item_section_content, R.layout.item_section_header, list)
+        binding.rvList.addItemDecoration(GridSectionAverageGapItemDecoration(10F, 10F, 20F, 15F))
+
+        binding.rvList.layoutManager = GridLayoutManager(this,3)
     }
 
     private fun initData() {

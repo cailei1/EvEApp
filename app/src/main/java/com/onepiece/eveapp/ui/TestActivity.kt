@@ -1,6 +1,5 @@
 package com.onepiece.eveapp.ui
 
-import android.util.Log
 import com.onepiece.eveapp.base.BaseActivity
 import com.onepiece.eveapp.databinding.ActivityTestBinding
 import kotlinx.coroutines.GlobalScope
@@ -21,6 +20,5 @@ class TestActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        Log.e("eve","test activity onresume")
     }
 }
