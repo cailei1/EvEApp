@@ -13,7 +13,9 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        ImmersionBar.with(this).transparentBar().init()
+        ImmersionBar.with(this).transparentBar().statusBarDarkFont(true).init()
+//        ImmersionBar.with(this).statusBarDarkFont(true, 0.2f)
+
 //        ScreenTabBar.transparentNavigationBar(window)
         super.onCreate(savedInstanceState)
 

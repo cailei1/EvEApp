@@ -1,9 +1,7 @@
 package com.onepiece.eveapp.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.gyf.immersionbar.ImmersionBar
@@ -13,33 +11,26 @@ import com.onepiece.eveapp.base.BaseActivity
 import com.onepiece.eveapp.databinding.ActivityMainBinding
 import com.onepiece.eveapp.ui.device.DeviceManagerFragment
 import com.onepiece.eveapp.ui.energy.EnergyDetailFragment
+import com.onepiece.eveapp.ui.home.HomeFragment
 import com.onepiece.eveapp.ui.station.PowerStationFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
-
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding:ActivityMainBinding
 
     private val fragments: List<Fragment> = mutableListOf(
-        PowerStationFragment(), EnergyDetailFragment(), DeviceManagerFragment()
+        HomeFragment(), EnergyDetailFragment(), DeviceManagerFragment()
     )
-
-
     override fun observeViewModel() {
 
     }
 
     override fun initViewBinding() {
         binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
     }
 
-    override fun onResume() {
-        super.onResume()
-        Log.e("eve","mainActivity onResume")
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,17 +55,20 @@ class MainActivity : BaseActivity() {
                 Log.e("eve","pagechage ${position}")
                 when (position) {
                     0 -> {
-//                        ImmersionBar.with(this@MainActivity).statusBarColor(R.color.green_84).init()
+//                        ImmersionBar.with(this@PowerStationDetailActivity).statusBarColor(R.color.green_84).init()
                         binding.powerStation.isChecked = true
                     }
                     1 ->{ binding.energyDetail.isChecked = true
-//                        ImmersionBar.with(this@MainActivity).transparentBar().init()
+//                        ImmersionBar.with(this@PowerStationDetailActivity).transparentBar().init()
                     }
                     2 ->{ binding.deviceManager.isChecked = true
-//                        ImmersionBar.with(this@MainActivity).transparentBar().init()
+//                        ImmersionBar.with(this@PowerStationDetailActivity).transparentBar().init()
                     }
                 }
             }
         })
     }
+
+
+
 }

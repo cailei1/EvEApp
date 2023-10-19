@@ -18,7 +18,7 @@
         android:theme="@style/Theme.EvEApp"
         tools:targetApi="31">
 <!--        <activity-->
-<!--            android:name=".ui.MainActivity"-->
+<!--            android:name=".ui.PowerStationDetailActivity"-->
 <!--            android:exported="true">-->
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
@@ -28,7 +28,7 @@
 <!--        </activity>-->
 
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,7 +39,11 @@
 
         <activity android:name=".ui.TestActivity"/>
 
-<!--        <activity android:name=".ui.MainActivity"/>-->
+        <activity android:name=".ui.MainActivity"/>
+
+        <activity android:name=".ui.battery.BatteryDetailActivity"/>
+
+        <activity android:name=".ui.station.PowerStationDetailActivity"/>
     </application>
 
 </manifest>

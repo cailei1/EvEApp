@@ -7,6 +7,7 @@ import com.onepiece.eveapp.base.BaseActivity
 import com.onepiece.eveapp.databinding.ActivityLoginBinding
 import com.onepiece.eveapp.ui.MainActivity
 import com.onepiece.eveapp.ui.TestActivity
+import com.onepiece.eveapp.ui.battery.BatteryDetailActivity
 
 class LoginActivity : BaseActivity() {
 
@@ -18,7 +19,7 @@ class LoginActivity : BaseActivity() {
     override fun observeViewModel() {
         binding.loginTv.setOnClickListener {
             Log.e("eve","startMainActivity")
-            startActivity(Intent(this@LoginActivity, TestActivity::class.java))
+            startActivity(Intent(this@LoginActivity, BatteryDetailActivity::class.java))
         }
     }
 

@@ -44,6 +44,10 @@ class PowerStationFragment : BaseFragment() {
         powerStationViewModel.initLineChart(binding.lineChart)
     }
 
+    override fun initListener() {
+
+    }
+
     override fun onResume() {
         super.onResume()
 //        ImmersionBar.with(this).statusBarColor(R.color.green_84).init()
@@ -77,6 +81,10 @@ class PowerStationFragment : BaseFragment() {
     
 
     override fun observeViewModel() {
+
+    }
+
+    override fun initData() {
 
     }
 }

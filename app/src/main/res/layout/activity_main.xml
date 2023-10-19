@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.station.PowerStationDetailActivity">
 
     <RadioGroup
         android:id="@+id/radio_group"
@@ -22,23 +22,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableTop="@drawable/radio_bottom_navigation1"
-            android:text="电站概况" />
+            android:text="首页" />
 
         <RadioButton
             android:id="@+id/energy_detail"
             style="@style/RadioGroupButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableTop="@drawable/radio_bottom_navigation2"
-            android:text="储能明细" />
+            android:drawableTop="@drawable/main_bottom_navigation1"
+            android:text="消息" />
 
         <RadioButton
             android:id="@+id/device_manager"
             style="@style/RadioGroupButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableTop="@drawable/radio_bottom_navigation3"
-            android:text="设备管理" />
+            android:drawableTop="@drawable/main_bottom_navigation2"
+            android:text="我的" />
     </RadioGroup>
 
     <View

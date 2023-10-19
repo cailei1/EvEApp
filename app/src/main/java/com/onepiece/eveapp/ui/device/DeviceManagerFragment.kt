@@ -15,4 +15,11 @@ class DeviceManagerFragment : BaseFragment() {
 
     override fun observeViewModel() {
     }
+
+    override fun initData() {
+    }
+
+    override fun initListener() {
+
+    }
 }

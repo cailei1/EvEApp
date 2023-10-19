@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<com.guanaj.easyswipemenulibrary.EasySwipeMenuLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    app:contentView="@+id/content"
+    app:rightMenuView="@+id/right"
+    android:layout_height="wrap_content">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/station_img"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/main_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/station_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="深圳观澜湖翡翠湾C8家庭旅店"
+        android:textColor="@color/black_33"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/station_img"
+        app:layout_constraintTop_toTopOf="@id/station_img" />
+
+
+    <TextView
+        android:id="@+id/position_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:text="中国大陆广东省东莞市塘镇观澜湖"
+        android:textColor="@color/white_99"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/position_img"
+        app:layout_constraintTop_toBottomOf="@id/station_name" />
+
+    <ImageView
+        android:id="@+id/position_img"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/ic_location"
+        app:layout_constraintBottom_toBottomOf="@id/position_name"
+        app:layout_constraintStart_toStartOf="@id/station_name"
+        app:layout_constraintTop_toTopOf="@id/position_name" />
+
+    <TextView
+        android:id="@+id/status_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/white_f6"
+        android:paddingStart="10dp"
+        android:paddingTop="2dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="2dp"
+        android:text="正常"
+        android:textColor="@color/green_84"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/station_name" />
+
+    <TextView
+        android:id="@+id/station_generation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_photovoltaic"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="24.000kwp"
+        android:textColor="@color/white_99"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/station_img"
+        app:layout_constraintStart_toStartOf="@id/station_name" />
+
+
+    <TextView
+        android:id="@+id/sun_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:drawableLeft="@drawable/ic_small_power_station"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="22.4度"
+        android:textColor="@color/white_99"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/station_img"
+        app:layout_constraintStart_toEndOf="@id/station_generation" />
+
+    <TextView
+        android:id="@+id/stations_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:drawableLeft="@drawable/ic_small_energy_storage"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="15.000度"
+        android:textColor="@color/white_99"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/station_img"
+        app:layout_constraintStart_toEndOf="@id/sun_temp" />
+
+    <View
+        android:id="@+id/line_view"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="15dp"
+        android:background="@color/white_99"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/station_img" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingStart="16dp"
+        android:gravity="center"
+        android:background="@color/white_f6"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/right_menu_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:src="@mipmap/ic_edit"
+            android:background="@drawable/circle_48_ec"
+             />
+        <ImageView
+            android:id="@+id/right_menu_2"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="26dp"
+            android:padding="15dp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_delete"
+            android:background="@drawable/circle_48_3a"
+             />
+    </LinearLayout>
+</com.guanaj.easyswipemenulibrary.EasySwipeMenuLayout>
