@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- 定义圆角半径，这里设置为 16dp -->
+    <corners android:radius="16dp" />
+
+
+
+    <!-- 定义渐变背景，从上到下 -->
+    <solid android:color="#FFF6F7F6" />
+</shape>
+

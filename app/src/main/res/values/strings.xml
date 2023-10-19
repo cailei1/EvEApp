@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">EvEApp</string>
+    <string name="app_name_release"> Release版本</string>
+    <string name="app_name_debug"> Debug版本</string>
 </resources>

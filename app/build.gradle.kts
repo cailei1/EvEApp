@@ -6,6 +6,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        create("release") {
+            storeFile = file("E:\\AndroidWorkPlace\\EvEApp\\eve.jks")
+            storePassword = "123456"
+            keyPassword = "123456"
+            keyAlias = "eve"
+        }
+    }
     namespace = "com.onepiece.eveapp"
     compileSdk = 34
 
@@ -19,13 +27,22 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
     buildTypes {
         release {
+            applicationIdSuffix = ".release"
+            resValue("string", "app_name", "@string/app_name_release")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
+        }
+
+        debug {
+            applicationIdSuffix = ".debug"
+            resValue("string", "app_name", "@string/app_name_debug")
         }
     }
     compileOptions {
@@ -76,8 +93,18 @@ dependencies {
 
 
     implementation("com.geyifeng.immersionbar:immersionbar:3.2.2")
-// kotlin扩展（可选）
+    // kotlin扩展（可选）
     implementation("com.geyifeng.immersionbar:immersionbar-ktx:3.2.2")
+
+
+    // BaseRecyclerViewAdapter
+    implementation("io.github.cymchad:BaseRecyclerViewAdapterHelper:3.0.14")
+    implementation("com.github.anzaizai:EasySwipeMenuLayout:1.1.4")
+
+    // ImageLoad
+    implementation("io.coil-kt:coil:2.4.0")
+
+    implementation("com.github.li-xiaojun:XPopup:2.9.19")
 
 }
 

@@ -8,9 +8,11 @@ import androidx.fragment.app.Fragment
 
 abstract class BaseFragment : Fragment() {
 
-    abstract fun initViewBinding():View
+    abstract fun initViewBinding(): View
 
     abstract fun observeViewModel()
+
+    abstract fun initData()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,5 +26,13 @@ abstract class BaseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initData()
+        initListener()
     }
+
+    abstract fun initListener()
+
+
+
+
 }

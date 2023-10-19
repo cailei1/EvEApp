@@ -14,6 +14,7 @@ import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Shader;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
@@ -136,6 +137,7 @@ public class CustomCircleProgressView extends View {
         mBunbleMaxSpeedY = attributes.getInteger(R.styleable.BubbleWaveLoadingView_wb_bubble_max_speed_y, 3);
         mProgress = attributes.getInteger(R.styleable.BubbleWaveLoadingView_wb_progress, 60);
 
+        Log.e("eve","custom progress view start init");
         float amplitudeRatioAttr = attributes.getFloat(R.styleable.BubbleWaveLoadingView_wb_amplitude, 50f) / 1000;
         mAmplitudeRatio = (amplitudeRatioAttr > DEFAULT_AMPLITUDE_RATIO) ? DEFAULT_AMPLITUDE_RATIO : amplitudeRatioAttr;
         attributes.recycle();
@@ -144,6 +146,7 @@ public class CustomCircleProgressView extends View {
         initWaveAnimation();
         createWaveShader();
         setProgress(mProgress);
+        Log.e("eve","custom progress view end init");
     }
 
     private float dip2px(float dpValue) {
@@ -196,12 +199,14 @@ public class CustomCircleProgressView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+//        Log.e("eve","custom progress view start onDraw");
         drawBackground(canvas);
         drawBorder(canvas);
         drawWave(canvas);
         tryCreateBubble();
         refreshBubbles();
         drawBubbles(canvas);
+//        Log.e("eve","custom progress view end onDraw");
     }
 
     private void createWaveShader() {

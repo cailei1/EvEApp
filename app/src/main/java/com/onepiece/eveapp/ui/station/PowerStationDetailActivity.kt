@@ -1,36 +1,43 @@
-package com.onepiece.eveapp.ui
+package com.onepiece.eveapp.ui.station
 
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.gyf.immersionbar.ImmersionBar
 import com.onepiece.eveapp.R
 import com.onepiece.eveapp.adapter.ScreenSlidePagerAdapter
 import com.onepiece.eveapp.base.BaseActivity
 import com.onepiece.eveapp.databinding.ActivityMainBinding
+import com.onepiece.eveapp.databinding.ActivityPowerStationDetailBinding
 import com.onepiece.eveapp.ui.device.DeviceManagerFragment
 import com.onepiece.eveapp.ui.energy.EnergyDetailFragment
-import com.onepiece.eveapp.ui.home.HomeFragment
 import com.onepiece.eveapp.ui.station.PowerStationFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : BaseActivity() {
-    private lateinit var binding:ActivityMainBinding
+class PowerStationDetailActivity : BaseActivity() {
+
+    private lateinit var binding: ActivityPowerStationDetailBinding
 
     private val fragments: List<Fragment> = mutableListOf(
-        HomeFragment(), EnergyDetailFragment(), DeviceManagerFragment()
+        PowerStationFragment(), EnergyDetailFragment(), DeviceManagerFragment()
     )
+
+
     override fun observeViewModel() {
 
     }
 
     override fun initViewBinding() {
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        binding = ActivityPowerStationDetailBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
     }
 
+    override fun onResume() {
+        super.onResume()
+        Log.e("eve","mainActivity onResume")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,7 +75,4 @@ class MainActivity : BaseActivity() {
             }
         })
     }
-
-
-
 }

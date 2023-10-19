@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 圆形边框 + 填充 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"
+    >
+
+    <size
+        android:width="48dp"
+        android:height="48dp" />
+
+    <stroke
+        android:width="0dp"
+        android:color="#C4E8F5" />
+
+    <solid android:color="#0091EA" />
+    <!--渐变色-->
+    <gradient
+        android:endColor="#FF019680"
+        android:startColor="#FF22C286"
+        android:angle="270"/>
+
+</shape>
