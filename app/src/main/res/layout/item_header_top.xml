@@ -9,7 +9,7 @@
         android:id="@+id/right_arrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingStart="24dp"
+        android:layout_marginStart="24dp"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
         android:src="@mipmap/img_arrow"
@@ -19,7 +19,7 @@
 
     <TextView
         android:id="@+id/group_number"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="电池组1"

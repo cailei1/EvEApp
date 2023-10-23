@@ -1,48 +1,67 @@
 package com.onepiece.eveapp.ui.battery
 
 import android.os.Bundle
-import androidx.recyclerview.widget.GridLayoutManager
-import com.onepiece.eveapp.GridSectionAverageGapItemDecoration
-import com.onepiece.eveapp.R
-import com.onepiece.eveapp.adapter.SelectionQuickAdapter
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import com.onepiece.eveapp.base.BaseActivity
-import com.onepiece.eveapp.databinding.ActivitySectionUerBinding
+import com.onepiece.eveapp.databinding.ActivityBatteryDetailBinding
 import com.onepiece.eveapp.eneity.MySection
-import com.onepiece.eveapp.eneity.SingleBatteryBean
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
 class BatteryDetailActivity : BaseActivity() {
 
-    private lateinit var binding: ActivitySectionUerBinding
+    private lateinit var binding: ActivityBatteryDetailBinding
 
     val list: MutableList<MySection> = ArrayList()
+
+     val mFragments = ArrayList<Fragment>()
+
+     val mTitles = arrayOf(
+        "电池簇1"
+    )
+
+    private lateinit var mAdapter: MyBatteryAdapter
+
     override fun observeViewModel() {
 
     }
 
     override fun initViewBinding() {
-        binding = ActivitySectionUerBinding.inflate(layoutInflater)
+        binding = ActivityBatteryDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initData()
         initListener()
     }
 
     private fun initListener() {
-        binding.rvList.adapter =
-            SelectionQuickAdapter(R.layout.item_section_content, R.layout.item_section_header, list)
-        binding.rvList.addItemDecoration(GridSectionAverageGapItemDecoration(10F, 10F, 20F, 15F))
+        for (title in mTitles) {
+            mFragments.add(BatterDetailFragment())
+        }
+        mAdapter =  MyBatteryAdapter(supportFragmentManager)
+        binding.viewPager.setAdapter(mAdapter)
 
-        binding.rvList.layoutManager = GridLayoutManager(this,3)
+        binding.slideTabLayout.setViewPager(binding.viewPager,mTitles)
     }
 
-    private fun initData() {
-        getSectionData()
+
+    inner class MyBatteryAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+        override fun getCount(): Int {
+            return mFragments.size
+        }
+
+        override fun getPageTitle(position: Int): CharSequence? {
+            return mTitles[position]
+        }
+
+        override fun getItem(position: Int): Fragment {
+            return mFragments[position]
+        }
     }
 
 //    private fun getEntity(): List<MySection>? {
@@ -61,17 +80,5 @@ class BatteryDetailActivity : BaseActivity() {
 //        return list
 //    }
 
-    private fun getSectionData(): List<MySection>? {
-//        val list1: MutableList<MySection> = ArrayList()
-        for (i in 0..7) {
-            list.add(MySection(true, "电池组$i"))
-            list.add(MySection(false, SingleBatteryBean()))
-            list.add(MySection(false, SingleBatteryBean()))
-            list.add(MySection(false, SingleBatteryBean()))
-            list.add(MySection(false, SingleBatteryBean()))
-            list.add(MySection(false, SingleBatteryBean()))
-            list.add(MySection(false, SingleBatteryBean()))
-        }
-        return list
-    }
+
 }

@@ -8,7 +8,7 @@ plugins {
 android {
     signingConfigs {
         create("release") {
-//            storeFile = file("E:\\AndroidWorkPlace\\EvEApp\\eve.jks")
+            storeFile = file("E:\\AndroidWorkPlace\\EvEApp\\eve.jks")
             storePassword = "123456"
             keyPassword = "123456"
             keyAlias = "eve"

@@ -26,6 +26,7 @@
         android:id="@+id/back_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:layout_marginStart="8dp"
         android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,24 +48,37 @@
 
     <com.flyco.tablayout.SlidingTabLayout
         android:id="@+id/slide_tab_layout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00ffffff"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
+        app:tl_textsize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_tv"
-        app:tl_indicator_gravity="TOP"
+        app:tl_indicator_gravity="BOTTOM"
         app:tl_textBold="SELECT"
         app:tl_underline_color="#FFFFFFFF"
-        app:tl_underline_gravity="TOP"
+        app:tl_underline_gravity="BOTTOM"
         app:tl_underline_height="1dp" />
+
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/slide_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/battery_rv"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
