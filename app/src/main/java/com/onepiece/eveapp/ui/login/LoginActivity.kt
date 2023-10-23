@@ -19,7 +19,7 @@ class LoginActivity : BaseActivity() {
     override fun observeViewModel() {
         binding.loginTv.setOnClickListener {
             Log.e("eve","startMainActivity")
-            startActivity(Intent(this@LoginActivity, BatteryDetailActivity::class.java))
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
         }
     }
 

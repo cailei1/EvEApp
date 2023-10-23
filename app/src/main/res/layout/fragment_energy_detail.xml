@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/detail_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/img_bg"
@@ -397,6 +396,20 @@
             app:layout_constraintTop_toTopOf="@id/batteries_data_image" />
 
 
+        <TextView
+            android:id="@+id/battery_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:paddingEnd="16dp"
+            android:text="详情"
+            android:textColor="@color/blue_b7"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/batteries_data_image"
+            app:layout_constraintEnd_toEndOf="@id/batteries_data_bg"
+            app:layout_constraintTop_toTopOf="@id/batteries_data_image" />
+
+
         <LinearLayout
             android:id="@+id/single_max_voltage_layout"
             android:layout_width="0dp"
@@ -493,9 +506,9 @@
             android:layout_height="0dp"
             android:gravity="center"
             android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/batteries_data_bg"
             app:layout_constraintEnd_toEndOf="@id/batteries_data_bg"
             app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintBottom_toBottomOf="@id/batteries_data_bg"
             app:layout_constraintStart_toEndOf="@id/single_max_temp_layout"
             app:layout_constraintTop_toBottomOf="@id/single_min_voltage_layout"
             app:layout_constraintVertical_weight="1">
