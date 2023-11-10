@@ -1,7 +1,9 @@
 package com.onepiece.eveapp.data.remote
 
 import com.onepiece.eveapp.data.Resource
+import com.onepiece.eveapp.dto.BaseResponse
 import com.onepiece.eveapp.dto.LoginResponse
+import com.onepiece.eveapp.eneity.LoginRequest
 
 
 /**
@@ -9,5 +11,5 @@ import com.onepiece.eveapp.dto.LoginResponse
  */
 
 internal interface RemoteDataSource {
-    suspend fun doLogin(): Resource<LoginResponse>
+    suspend fun doLogin(loginRequest:LoginRequest): Resource<BaseResponse<LoginResponse>>
 }

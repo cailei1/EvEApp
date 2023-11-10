@@ -41,6 +41,8 @@
 
         <activity android:name=".ui.MainActivity"/>
 
+        <activity android:name=".ui.main.MainTestActivity"/>
+
         <activity android:name=".ui.battery.BatteryDetailActivity"/>
 
         <activity android:name=".ui.station.PowerStationDetailActivity"/>

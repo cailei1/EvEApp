@@ -14,7 +14,6 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 
-
 private const val timeoutRead = 30   //In seconds
 private const val contentType = "Content-Type"
 private const val contentTypeValue = "application/json"
@@ -30,9 +29,9 @@ class RetrofitService @Inject constructor() {
         val original = chain.request()
 
         val request = original.newBuilder()
-                .header(contentType, contentTypeValue)
-                .method(original.method, original.body)
-                .build()
+            .header(contentType, contentTypeValue)
+            .method(original.method, original.body)
+            .build()
 
         chain.proceed(request)
     }
@@ -41,7 +40,7 @@ class RetrofitService @Inject constructor() {
         get() {
             val loggingInterceptor = HttpLoggingInterceptor()
 //            if (BuildConfig.DEBUG) {
-                loggingInterceptor.apply { level = HttpLoggingInterceptor.Level.BODY }
+            loggingInterceptor.apply { level = HttpLoggingInterceptor.Level.BODY }
 //            }
             return loggingInterceptor
         }
@@ -53,9 +52,9 @@ class RetrofitService @Inject constructor() {
         okHttpBuilder.readTimeout(timeoutRead.toLong(), TimeUnit.SECONDS)
         val client = okHttpBuilder.build()
         retrofit = Retrofit.Builder()
-                .baseUrl(BASE_URL).client(client)
-                .addConverterFactory(MoshiConverterFactory.create(getMoshi()))
-                .build()
+            .baseUrl(BASE_URL).client(client)
+            .addConverterFactory(MoshiConverterFactory.create(getMoshi()))
+            .build()
     }
 
     fun <S> createService(serviceClass: Class<S>): S {
@@ -64,8 +63,8 @@ class RetrofitService @Inject constructor() {
 
     private fun getMoshi(): Moshi {
         return Moshi.Builder()
-                .add(MyKotlinJsonAdapterFactory())
-                .add(MyStandardJsonAdapters.FACTORY)
-                .build()
+            .add(MyKotlinJsonAdapterFactory())
+            .add(MyStandardJsonAdapters.FACTORY)
+            .build()
     }
 }
